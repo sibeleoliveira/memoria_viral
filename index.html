@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo Da Memória</title>
-  <link rel="stylesheet" href="./src/styles/reset.css">
-  <link rel="stylesheet" href="./src/styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Memória Viral</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/reset.css">
 </head>
-
 <body>
-  <div class="container">
-    <h2>JOGO DA MEMÓRIA</h2>
-    <div class="game"></div>
-    <button class="reset" onclick="window.location.reload()">RESET GAME</button>
-  </div>
-
-  <script src="./src/scripts/engine.js" defer></script>
+    <div class="container">
+        <div class="container-header">
+            <img src="src/img/logo.png" alt="logo" width="150px" height="150px">
+            <div class="time"><p>10:00</p></div>
+        </div>
+        <div class="game">
+        </div>
+        <button class="btn-reset">Reset game</button>
+    </div>
+    
 </body>
-
 </html>
