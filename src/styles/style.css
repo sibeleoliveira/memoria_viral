@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color:#80a8a8;
+    font-family: 'Delius', sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color:#800335;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    background:white;
+    border-radius: 5px;
+    border: 2px solid black;
+    color: #800335;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Delius', Arial , sans-serif;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+.material-symbols-outlined {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+    background:#80a8a8 ;
+    padding: 10px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+ .buttons {
+    flex-direction: column;
+ }
+}
+@media (min-width: 1024px) {
+    .info-icon {
+        font-size: 5rem;
+        width: 80px;
+        height: 80px;
+        padding: 20px;
+    }
+}
