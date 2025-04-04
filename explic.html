@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modos de Jogo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #80a8a8;
+      font-family: 'Delius', sans-serif;
+      text-align: center;
+      color: #333;
+      padding-top: 3rem;
+    }
+
+    header {
+      color: #800335;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 5vw;
+      width: 100%;
+      max-width: 2000px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      transition: transform 0.3s;
+      border: 2px solid black;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: #800335;
+      margin-bottom: 1rem;
+    }
+
+
+    @media (max-width: 600px) {
+      main {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+    }
+
+    @media (min-width: 3840px) {
+      body {
+        font-size: 2rem;
+      }
+
+      h1 {
+        font-size: 5rem;
+      }
+
+      .card {
+        padding: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Modos de Jogo</h1>
+    <p>Conheça as diferentes formas de jogar</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Modo Livre</h2>
+      <p>O modo livre permite que os jogadores explorem o jogo sem restrições de tempo ou objetivos definidos. Ideal para quem quer praticar ou apenas se divertir livremente.</p>
+    </section>
+
+    <section class="card">
+      <h2>Modo por Times</h2>
+      <p>Divida os participantes em equipes e jogue cooperativamente ou competitivamente. Este modo incentiva o trabalho em grupo e a estratégia coletiva.</p>
+    </section>
+
+    <section class="card">
+      <h2>Modo por Número de Jogadas</h2>
+      <p>Neste modo, cada jogador tem um número limitado de jogadas para cumprir objetivos. Ótimo para desafios rápidos e competições equilibradas.</p>
+    </section>
+  </main>
+</body>
+</html>
