@@ -60,7 +60,16 @@ const renderGame = (cartas) => {
   cartas.forEach((carta) => {
     const cartaElement = document.createElement("div");
     cartaElement.className = `item ${carta.aberto ? "boxOpen" : ""} ${carta.combinado ? "boxMatch" : ""}`;
-    cartaElement.innerHTML = carta.aberto || carta.combinado ? carta.imagem : "❓";
+    if (carta.aberto || carta.combinado) {
+      const imgElement = document.createElement("img");
+      imgElement.src = carta.imagem;
+      imgElement.alt = "Carta do jogo";
+      imgElement.classList.add("card-image");
+      cartaElement.innerHTML = ""; // Limpa antes de adicionar a imagem
+      cartaElement.appendChild(imgElement);
+    } else {
+      cartaElement.innerHTML = "❓";
+    }
     
     cartaElement.onclick = () => {
       if (!carta.aberto && !carta.combinado) {
@@ -81,11 +90,12 @@ const renderGame = (cartas) => {
 // Inicializa o jogo.
 const startGame = () => {
   const cartas = criarCartas([
-    "🐱", "🐱", "🦝", "🦝", "🦊", "🦊", "🐶", "🐶",
-    "🐵", "🐵", "🦁", "🦁", "🐯", "🐯", "🐮", "🐮"
+    "imagens/01.png", "imagens/01.png", "imagens/02.png", "imagens/02.png", "imagens/03.png", "imagens/03.png", "imagens/04.png", "imagens/04.png",
+    "imagens/05.png", "imagens/05.png", "imagens/06.png", "imagens/06.png", "imagens/07.png", "imagens/07.png", "imagens/08.png", "imagens/08.png"
   ]);
   renderGame(cartas);
 };
+
 
 // Inicia o jogo quando a página carregar.
 window.onload = startGame;
