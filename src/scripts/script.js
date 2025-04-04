@@ -2,13 +2,13 @@
 const embaralha = (array) => [...array].sort(() => Math.random() - 0.5);
 
 // Cria as cartas com base na lista de imagens embaralhadas.
-const criarCartas = (imagens) => {
-  return embaralha(imagens).map((imagem, index) => ({
-    id: index,
-    imagem,
-    aberto: false,
-    combinado: false
-  }));
+const criarCartas = (itens) => {
+  let cartas = itens.flatMap(({ imagem, audio }, index) => [
+    { id: index * 2, imagem, audio, aberto: false, combinado: false },
+    { id: index * 2 + 1, imagem, audio, aberto: false, combinado: false }
+  ]);
+  
+  return embaralha(cartas); // Embaralha as cartas
 };
 
 // Atualiza o estado das cartas ao clicar. É válido saber que aqui sem o let, 
@@ -26,7 +26,7 @@ const transformaCartas = (cartas, id, callback) => {
     setTimeout(() => {
       atualizaCartas = deuMatch(atualizaCartas);
       callback(atualizaCartas);
-    }, 1000);
+    }, 2000);
   }
 
   return atualizaCartas;
@@ -51,6 +51,8 @@ const deuMatch = (cartas) => {
 // Os metódos a seguir utilizados como "querySelector", "createElement", "appendChild" são uma propriedades de manipulação de DOM, 
 // e ainda que não sejam puramente funcional, são essenciais para o funcionamento do programa.
 
+
+let audioAtual = null;
 //Função que renderiza o jogo dinamicamente.
 const renderGame = (cartas) => {
 
@@ -73,7 +75,20 @@ const renderGame = (cartas) => {
     
     cartaElement.onclick = () => {
       if (!carta.aberto && !carta.combinado) {
+
         const atualizaCartas = transformaCartas(cartas, carta.id, renderGame);
+
+        // Verificar se há um áudio tocando antes
+        if (audioAtual) {
+          audioAtual.pause();
+          audioAtual.currentTime = 0;
+        }
+
+        // Para tocar o áudio que está associado à carta
+        audioAtual = new Audio(carta.audio);
+        audioAtual.play();
+
+        
         renderGame(atualizaCartas);
       }
     };
@@ -87,11 +102,18 @@ const renderGame = (cartas) => {
   }
 };
 
+
 // Inicializa o jogo.
 const startGame = () => {
   const cartas = criarCartas([
-    "imagens/01.png", "imagens/01.png", "imagens/02.png", "imagens/02.png", "imagens/03.png", "imagens/03.png", "imagens/04.png", "imagens/04.png",
-    "imagens/05.png", "imagens/05.png", "imagens/06.png", "imagens/06.png", "imagens/07.png", "imagens/07.png", "imagens/08.png", "imagens/08.png"
+    { imagem: "imagens/01.png", audio: "audios/01.mp3" },
+    { imagem: "imagens/02.png", audio: "audios/02.mp3" },
+    { imagem: "imagens/03.png", audio: "audios/03.mp3" },
+    { imagem: "imagens/04.png", audio: "audios/04.mp3" },
+    { imagem: "imagens/05.png", audio: "audios/05.mp3" },
+    { imagem: "imagens/06.png", audio: "audios/06.mp3" },
+    { imagem: "imagens/07.png", audio: "audios/07.mp3" },
+    { imagem: "imagens/08.png", audio: "audios/08.mp3" }
   ]);
   renderGame(cartas);
 };
