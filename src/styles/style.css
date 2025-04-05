@@ -20,13 +20,24 @@ body {
     text-align: center;
     position: relative;
 }
-
+header {
+  color: #800335;
+  margin-bottom: 2rem;
+}
 h1 {
     font-size: 3rem;
     margin-bottom: 50px;
     color:#800335;
 }
-
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 5vw;
+  width: 100%;
+  max-width: 2000px;
+  box-sizing: border-box;
+}
 .buttons {
     display: flex;
     gap: 20px;
@@ -65,11 +76,46 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 0.7rem;
+  transition: transform 0.3s;
+  border: 2px solid black;
+  gap: 1em;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+a {
+  color: #800335;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
 
 @media (max-width: 600px) {
  .buttons {
     flex-direction: column;
  }
+  main {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  a {
+    font-size: 1rem;
+  }
 }
 @media (min-width: 1024px) {
     .info-icon {
@@ -78,4 +124,20 @@ button:hover {
         height: 80px;
         padding: 20px;
     }
+}
+@media (min-width: 3840px) {
+  body {
+    font-size: 2rem;
+  }
+
+  a {
+    font-size: 5rem;
+  }
+
+  .card {
+    padding: 4rem;
+  }
+  h1 {
+    font-size: 5rem;
+  }
 }
