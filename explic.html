@@ -15,7 +15,7 @@
       justify-content: flex-start;
       min-height: 100vh;
       margin: 0;
-      background-color: #80a8a8;
+      background-color: #DDDDDA;
       font-family: 'Delius', sans-serif;
       text-align: center;
       color: #333;
@@ -23,7 +23,7 @@
     }
 
     header {
-      color: #800335;
+      color: #223c63;
       margin-bottom: 2rem;
     }
 
@@ -42,33 +42,23 @@
       box-sizing: border-box;
     }
 
-    .card {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 2rem;
-      transition: transform 0.3s;
-      border: 2px solid black;
-    }
-
     .card:hover {
       transform: scale(1.02);
     }
 
-    h2 {
-      color: #800335;
+    h3 {
+      color: #5d7599;
       margin-bottom: 1rem;
     }
 
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       main {
         grid-template-columns: 1fr;
         padding: 1rem;
       }
     }
 
-    @media (min-width: 3840px) {
+    @media (min-width: 4000px) {
       body {
         font-size: 2rem;
       }
@@ -85,25 +75,68 @@
 </head>
 <body>
   <header>
-    <h1>Modos de Jogo</h1>
-    <p>Conheça as diferentes formas de jogar</p>
+    <h1>Modalidades do Jogo</h1>
+    <p>Conheça as diferentes formas de jogar:</p>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Modo Livre</h2>
-      <p>O modo livre permite que os jogadores explorem o jogo sem restrições de tempo ou objetivos definidos. Ideal para quem quer praticar ou apenas se divertir livremente.</p>
-    </section>
+    <a href="/index.html" style="text-decoration: none; color: inherit;">
+      <div style = "background-color: #e4fde1;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 350px; 
+      height: 250px;
+      padding: 16px;
+      transition: transform 0.3s;
+      border: 2px solid black;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;       
+      justify-content: center;
+      gap: 20px;">
+        <h3>Modo Livre</h3>
+        <p>O modo livre permite que os jogadores explorem o jogo sem restrições de tempo ou objetivos definidos. Ideal para quem quer praticar ou apenas se divertir livremente.</p>
+      </div>
+    </a>
 
-    <section class="card">
-      <h2>Modo por Times</h2>
-      <p>Divida os participantes em equipes e jogue cooperativamente ou competitivamente. Este modo incentiva o trabalho em grupo e a estratégia coletiva.</p>
-    </section>
+    <a href="/index.html" style="text-decoration: none; color: inherit;">
+      <div style = "background-color: #e4fde1;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 350px; 
+      height: 250px;
+      padding: 16px;
+      transition: transform 0.3s;
+      border: 2px solid black;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;       
+      justify-content: center;
+      gap: 20px;">
+        <h3>Modo Tempo</h3>
+        <p>Aqui o jogador possui um período limitado para completar a partida, tic tac, tente resolver rapidamentre porque o seu tempo está acabando!</p>
+      </div>
+    </a>
 
-    <section class="card">
-      <h2>Modo por Número de Jogadas</h2>
-      <p>Neste modo, cada jogador tem um número limitado de jogadas para cumprir objetivos. Ótimo para desafios rápidos e competições equilibradas.</p>
-    </section>
+    <a href="/index.html" style="text-decoration: none; color: inherit;">
+      <div style = "background-color: #e4fde1;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 350px; 
+      height: 250px;
+      padding: 16px;
+      transition: transform 0.3s;
+      border: 2px solid black;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;       
+      justify-content: center;
+      gap: 20px;">
+        <h3>Modo Limite</h3>
+        <p>Neste modo, cada jogador tem um número limitado de jogadas para cumprir seus objetivos, ou seja, há um número máximo de vezes para que o jogador visualize as cartas. Ótimo para desafios rápidos e competições equilibradas.</p>
+      </div>
+    </a>
+
   </main>
 </body>
 </html>
