@@ -26,7 +26,7 @@ const transformaCartas = (cartas, id, callback) => {
     setTimeout(() => {
       atualizaCartas = deuMatch(atualizaCartas);
       callback(atualizaCartas);
-    }, 1000);
+    }, 600);
   }
 
   return atualizaCartas;
