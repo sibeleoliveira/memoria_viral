@@ -10,6 +10,14 @@ body {
   user-select: none;
 }
 
+#timer {
+  font-size: 24px; 
+  margin-bottom: 16px;
+  color: #223c63; 
+  font-weight: bold;
+  font-family:'Delius','Times New Roman', Times, serif; ;
+}
+
 .container {
   position: relative;
   display: flex;
