@@ -11,7 +11,7 @@ const criarCartas = (itens) => {
   ]);
   
   return embaralha(cartas); // Embaralha as cartas
-};
+}; // Fecha a função criarCartas
 
 // Atualiza o estado das cartas ao clicar. É válido saber que aqui sem o let, 
 // o código não roda pq a ideia é justamente a atualização das cartas, ou seja, nesse ponto é necessário que o objeto em questão, varie. 
@@ -81,21 +81,16 @@ const deuMatch = (cartas) => {
     // HTML
     const display = document.createElement("p"); // Cria um parágrafo para exibir o contador
     display.textContent = "Suas Jogadas: 0"; // Define o texto inicial do contador
-
-    const mostrador = document.createElement("p");
-      mostrador.textContent = `Suas Jogadas: ${valorInicial}`;
-      mostrador.style.cssText = `
-        font-size: 20px;
-        color: white;
-        background-color: #333;
-        padding: 10px;
-        border-radius: 8px;
-        width: fit-content;
-        margin: 10px auto;
-        text-align: center;
-      `;
-      return mostrador;
-    };
+    display.style.cssText = `
+      font-size: 20px;
+      color: white;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 10px auto;
+      text-align: center;
+    `;
   
     // Atualiza a pagina com o novo valor do contador
     const updateDisplay = (novoCont) => {
@@ -106,7 +101,6 @@ const deuMatch = (cartas) => {
     document.body.addEventListener("click", () => {
       const novoCont = adicionaCont(); // Chama a função que adiciona o contador
       updateDisplay(novoCont); // Atualiza a página com o novo valor
-    });
   
     // Adiciona o elemento à página
     document.body.appendChild(display); // Adiciona o parágrafo ao corpo do documento
@@ -157,17 +151,37 @@ const renderGame = (cartas) => {
 // Inicializa o jogo.
 const startGame = () => {
   const cartas = criarCartas([
-    { imagem: "imagens/01.png", audio: "audiosCortados/01.mp3" },
-    { imagem: "imagens/02.png", audio: "audiosCortados/02.mp3" },
-    { imagem: "imagens/03.png", audio: "audiosCortados/03.mp3" },
-    { imagem: "imagens/04.png", audio: "audiosCortados/04.mp3" },
-    { imagem: "imagens/05.png", audio: "audiosCortados/05.mp3" },
-    { imagem: "imagens/06.png", audio: "audiosCortados/06.mp3" },
-    { imagem: "imagens/07.png", audio: "audiosCortados/07.mp3" },
-    { imagem: "imagens/08.png", audio: "audiosCortados/08.mp3" }
+    { imagem: "imagens/01.png", audio:"AudiosCortados/01.mp3" },
+    { imagem: "imagens/02.png", audio:"AudiosCortados/02.mp3" },
+    { imagem: "imagens/03.png", audio:"AudiosCortados/03.mp3" },
+    { imagem: "imagens/04.png", audio:"AudiosCortados/04.mp3" },
+    { imagem: "imagens/05.png", audio:"AudiosCortados/05.mp3" },
+    { imagem: "imagens/06.png", audio:"AudiosCortados/06.mp3" },
+    { imagem: "imagens/07.png", audio:"AudiosCortados/07.mp3" },
+    { imagem: "imagens/08.png", audio:"AudiosCortados/08.mp3" }
   ]);
   renderGame(cartas);
 };
 
 // Inicia o jogo quando a página carregar.
 window.onload = startGame;
+
+// Adiciona estilos ao contador
+const adicionarEstilos = () => {
+  const estilo = document.createElement("style");
+  estilo.textContent = `
+    p {
+      font-size: 20px;
+      color: white;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 10px auto;
+      text-align: center;
+    }
+  `;
+  document.head.appendChild(estilo);
+};
+
+adicionarEstilos();
