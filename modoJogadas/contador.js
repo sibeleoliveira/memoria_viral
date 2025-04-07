@@ -33,6 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       updateDisplay(novoCont); // Atualiza a página com o novo valor
     });
   
-    // Adiciona o elemento criado à página
+    // Adiciona o elemento à página
     document.body.appendChild(display); // Adiciona o parágrafo ao corpo do documento
   });
