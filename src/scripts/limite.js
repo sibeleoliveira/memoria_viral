@@ -81,6 +81,21 @@ const deuMatch = (cartas) => {
     // HTML
     const display = document.createElement("p"); // Cria um parágrafo para exibir o contador
     display.textContent = "Suas Jogadas: 0"; // Define o texto inicial do contador
+
+    const mostrador = document.createElement("p");
+      mostrador.textContent = `Suas Jogadas: ${valorInicial}`;
+      mostrador.style.cssText = `
+        font-size: 20px;
+        color: white;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 8px;
+        width: fit-content;
+        margin: 10px auto;
+        text-align: center;
+      `;
+      return mostrador;
+    };
   
     // Atualiza a pagina com o novo valor do contador
     const updateDisplay = (novoCont) => {
