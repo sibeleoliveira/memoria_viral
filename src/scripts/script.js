@@ -41,6 +41,16 @@ const deuMatch = (cartas) => {
   const [primeira, segunda] = cartasAbertas;
   const isMatch = primeira.imagem === segunda.imagem;
 
+  if (isMatch) {
+    // Toca o áudio apenas se for um par correto
+    if (audioAtual) {
+      audioAtual.pause();
+      audioAtual.currentTime = 0;
+    }
+    audioAtual = new Audio(segunda.audio);
+    audioAtual.play();
+  }
+
   return cartas.map((carta) =>
     carta.combinado || (isMatch && carta.aberto) // Mantém os pares corretos abertos.
       ? { ...carta, combinado: true, aberto: true }
@@ -77,18 +87,7 @@ const renderGame = (cartas) => {
       if (!carta.aberto && !carta.combinado) {
 
         const atualizaCartas = transformaCartas(cartas, carta.id, renderGame);
-
-        // Verificar se há um áudio tocando antes
-        if (audioAtual) {
-          audioAtual.pause();
-          audioAtual.currentTime = 0;
-        }
-
-        // Para tocar o áudio que está associado à carta
-        audioAtual = new Audio(carta.audio);
-        audioAtual.play();
-
-        
+       
         renderGame(atualizaCartas);
       }
     };
@@ -106,14 +105,14 @@ const renderGame = (cartas) => {
 // Inicializa o jogo.
 const startGame = () => {
   const cartas = criarCartas([
-    { imagem: "imagens/01.png", audio: "audios/01.mp3" },
-    { imagem: "imagens/02.png", audio: "audios/02.mp3" },
-    { imagem: "imagens/03.png", audio: "audios/03.mp3" },
-    { imagem: "imagens/04.png", audio: "audios/04.mp3" },
-    { imagem: "imagens/05.png", audio: "audios/05.mp3" },
-    { imagem: "imagens/06.png", audio: "audios/06.mp3" },
-    { imagem: "imagens/07.png", audio: "audios/07.mp3" },
-    { imagem: "imagens/08.png", audio: "audios/08.mp3" }
+    { imagem: "imagens/01.png", audio: "audiosCortados/01.mp3" },
+    { imagem: "imagens/02.png", audio: "audiosCortados/02.mp3" },
+    { imagem: "imagens/03.png", audio: "audiosCortados/03.mp3" },
+    { imagem: "imagens/04.png", audio: "audiosCortados/04.mp3" },
+    { imagem: "imagens/05.png", audio: "audiosCortados/05.mp3" },
+    { imagem: "imagens/06.png", audio: "audiosCortados/06.mp3" },
+    { imagem: "imagens/07.png", audio: "audiosCortados/07.mp3" },
+    { imagem: "imagens/08.png", audio: "audiosCortados/08.mp3" }
   ]);
   renderGame(cartas);
 };
