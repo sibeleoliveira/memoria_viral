@@ -149,6 +149,7 @@ const renderGame = (cartas) => {
       alert("Parabéns! Você venceu essa partida.");
       const audioVitoria = document.getElementById("vitoria-audio");
       if (audioVitoria) audioVitoria.play();
+      openModal()
     }, 300);
   } 
 }
@@ -167,6 +168,15 @@ const startGame = () => {
   ]);
   renderGame(cartas);
 };
+
+// funções que abrem e fecham modal
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
 
 // Inicia o jogo quando a página carregar.
 window.onload = startGame;
