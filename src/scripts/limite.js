@@ -68,7 +68,9 @@ const deuMatch = (cartas) => {
       return () => {
         const novoCont = cont + 1;
         if (novoCont >= maxClicks) { // Verifica se o número máximo de cliques foi atingido
-          alert("Você perdeu!"); // Avisa que perdeu caso tenha passado do numero de jogadas
+          alert("Você perdeu!");
+          document.getElementById("derrota-audio").play();
+          // Avisa que perdeu caso tenha passado do numero de jogadas
         }
         cont = novoCont; // Atualiza o contador
         return novoCont; // Retorna o valor do contador
@@ -143,11 +145,14 @@ const renderGame = (cartas) => {
 
   // Verifica se o jogo terminou.
   if (cartas.every((carta) => carta.combinado)) {
-    setTimeout(() => alert("Parabéns! Você venceu essa partida."), 300);
-  }
-};
-
-
+    setTimeout(() => {
+      alert("Parabéns! Você venceu essa partida.");
+      const audioVitoria = document.getElementById("vitoria-audio");
+      if (audioVitoria) audioVitoria.play();
+    }, 300);
+  } 
+}
+  
 // Inicializa o jogo.
 const startGame = () => {
   const cartas = criarCartas([
