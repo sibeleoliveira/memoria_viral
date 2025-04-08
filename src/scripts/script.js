@@ -100,6 +100,7 @@ const renderGame = (cartas) => {
     setTimeout(() => {
       alert("Parabéns! Você venceu essa partida.");
     document.getElementById("vitoria-audio").play();
+    openModal()
   }, 100);
 } }
 
@@ -118,6 +119,15 @@ const startGame = () => {
   ]);
   renderGame(cartas);
 };
+
+// funções que abrem e fecham modal
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
 
 
 // Inicia o jogo quando a página carregar.
