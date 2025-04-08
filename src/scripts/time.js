@@ -78,6 +78,7 @@ const iniciarTimer = () => {
     // Timer de perda
     timer = setTimeout(() => {
       alert("Tempo esgotado! Você perdeu.");
+        document.getElementById("derrota-audio").play();
       startGame(); // Reinicia o jogo
     }, 60000);
   
@@ -129,9 +130,12 @@ const renderGame = (cartas) => {
   if (cartas.every((carta) => carta.combinado)) {
     clearTimeout(timer);
     clearInterval(relogio);
-    setTimeout(() => alert("Parabéns! Você venceu essa partida."), 300);
+    setTimeout(() => {
+      alert("Parabéns! Você venceu essa partida.");
+      document.getElementById("vitoria-audio").play();
+    }, 100);
   }
-};
+}
 
 // Inicializa o jogo.
 const startGame = () => {
