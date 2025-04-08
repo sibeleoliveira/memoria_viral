@@ -26,7 +26,7 @@ const transformaCartas = (cartas, id, callback) => {
     setTimeout(() => {
       atualizaCartas = deuMatch(atualizaCartas);
       callback(atualizaCartas);
-    }, 1000);
+    }, 600);
   }
 
   return atualizaCartas;
@@ -97,9 +97,11 @@ const renderGame = (cartas) => {
 
   // Verifica se o jogo terminou.
   if (cartas.every((carta) => carta.combinado)) {
-    setTimeout(() => alert("Parabéns! Você venceu essa partida."), 300);
-  }
-};
+    setTimeout(() => {
+      alert("Parabéns! Você venceu essa partida.");
+    document.getElementById("vitoria-audio").play();
+  }, 100);
+} }
 
 
 // Inicializa o jogo.

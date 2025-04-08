@@ -28,7 +28,7 @@ const transformaCartas = (cartas, id, callback) => {
     setTimeout(() => {
       atualizaCartas = deuMatch(atualizaCartas);
       callback(atualizaCartas);
-    }, 1000);
+    }, 600);
   }
 
   return atualizaCartas;
@@ -68,7 +68,9 @@ const deuMatch = (cartas) => {
       return () => {
         const novoCont = cont + 1;
         if (novoCont >= maxClicks) { // Verifica se o número máximo de cliques foi atingido
-          alert("Você perdeu!"); // Avisa que perdeu caso tenha passado do numero de jogadas
+          alert("Você perdeu!");
+          document.getElementById("derrota-audio").play();
+          // Avisa que perdeu caso tenha passado do numero de jogadas
         }
         cont = novoCont; // Atualiza o contador
         return novoCont; // Retorna o valor do contador
@@ -79,7 +81,7 @@ const deuMatch = (cartas) => {
     const adicionaCont = contador(maxClicks); // Cria uma instância do contador
   
     // HTML
-    const display = document.getElementById("contador"); // Cria um parágrafo para exibir o contador
+    const display = document.createElement("p"); // Cria um parágrafo para exibir o contador
     display.textContent = "Suas Jogadas: 0"; // Define o texto inicial do contador
     display.style.cssText = `
       font-size: 20px;
@@ -102,7 +104,8 @@ const deuMatch = (cartas) => {
       const novoCont = adicionaCont(); // Chama a função que adiciona o contador
       updateDisplay(novoCont); // Atualiza a página com o novo valor
   
-
+    // Adiciona o elemento à página
+    document.body.appendChild(display); // Adiciona o parágrafo ao corpo do documento
   });
 
 let audioAtual = null;
@@ -142,11 +145,14 @@ const renderGame = (cartas) => {
 
   // Verifica se o jogo terminou.
   if (cartas.every((carta) => carta.combinado)) {
-    setTimeout(() => alert("Parabéns! Você venceu essa partida."), 300);
-  }
-};
-
-
+    setTimeout(() => {
+      alert("Parabéns! Você venceu essa partida.");
+      const audioVitoria = document.getElementById("vitoria-audio");
+      if (audioVitoria) audioVitoria.play();
+    }, 300);
+  } 
+}
+  
 // Inicializa o jogo.
 const startGame = () => {
   const cartas = criarCartas([
@@ -164,23 +170,3 @@ const startGame = () => {
 
 // Inicia o jogo quando a página carregar.
 window.onload = startGame;
-
-// Adiciona estilos ao contador
-const adicionarEstilos = () => {
-  const estilo = document.createElement("style");
-  estilo.textContent = `
-    p {
-      font-size: 20px;
-      color: white;
-      background-color: #333;
-      padding: 10px;
-      border-radius: 8px;
-      width: fit-content;
-      margin: 10px auto;
-      text-align: center;
-    }
-  `;
-  document.head.appendChild(estilo);
-};
-
-adicionarEstilos();
