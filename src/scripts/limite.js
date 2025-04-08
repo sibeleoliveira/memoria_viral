@@ -81,7 +81,7 @@ const deuMatch = (cartas) => {
     const adicionaCont = contador(maxClicks); // Cria uma instância do contador
   
     // HTML
-    const display = document.createElement("p"); // Cria um parágrafo para exibir o contador
+    const display = document.getElementById("contador"); // Cria um parágrafo para exibir o contador
     display.textContent = "Suas Jogadas: 0"; // Define o texto inicial do contador
     display.style.cssText = `
       font-size: 20px;
@@ -104,8 +104,7 @@ const deuMatch = (cartas) => {
       const novoCont = adicionaCont(); // Chama a função que adiciona o contador
       updateDisplay(novoCont); // Atualiza a página com o novo valor
   
-    // Adiciona o elemento à página
-    document.body.appendChild(display); // Adiciona o parágrafo ao corpo do documento
+    
   });
 
 let audioAtual = null;

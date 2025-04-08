@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #FEDFA6;
+}
+
+.container-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container-home p {
+    width: 60%;
+    text-align: center;
+    font-size: 2rem;
+
+}
+
+.container-home button {
+    font-size: 2rem;
+    width: 200px;
+    padding: 15px;
+    color: #000000;
+    border: none;
+    border-radius: 14px;
+    background-color: #e0aa4695;
+}
+
+.container-home button:hover {
+    cursor: pointer;
+    background-color: #f2b84c72;
+}

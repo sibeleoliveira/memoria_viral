@@ -15,19 +15,19 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color:#80a8a8;
+    background-color:#FEDFA6;
     font-family: 'Delius', sans-serif;
     text-align: center;
     position: relative;
 }
 header {
-  color: #800335;
+  color: #000000;
   margin-bottom: 2rem;
 }
 h1 {
     font-size: 3rem;
     margin-bottom: 50px;
-    color:#800335;
+    color:#000000;
 }
 main {
   display: grid;
@@ -67,7 +67,7 @@ button:hover {
     font-size: 2rem;
     cursor: pointer;
     color: black;
-    background:#80a8a8 ;
+    background: #FEDFA6 ;
     padding: 10px;
     text-align: center;
     width: 40px;
@@ -91,7 +91,7 @@ button:hover {
 }
 
 a {
-  color: #800335;
+  color: #000000;
   text-decoration: none;
   margin-bottom: 1rem;
 }
@@ -192,4 +192,8 @@ a {
 
 .close-btn:hover {
   background-color: #2980b9;
+}
+
+.img-logo {
+  width: 150px;
 }
