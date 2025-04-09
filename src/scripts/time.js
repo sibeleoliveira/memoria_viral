@@ -80,7 +80,7 @@ const iniciarTimer = () => {
       alert("Tempo esgotado! Você perdeu.");
         document.getElementById("derrota-audio").play();
       startGame(); // Reinicia o jogo
-    }, 60000);
+    }, 100);
   
     // Relógio visual
     relogio = setInterval(() => {
